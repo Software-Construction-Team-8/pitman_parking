@@ -13,6 +13,10 @@ client = MongoClient('mongodb+srv://sc_delaEmi:u2JsEd0nzYssgaMd@cluster0.8qczawe
 db=client['test']
 project = db.Sample
 
+@app.route("/")
+def home_page():
+    return "You are in localhost 5000"
+
 @app.route('/hello')
 def hello():
     return 'Hello world'
@@ -25,4 +29,11 @@ def mongotest():
     packet = {"id": id, "data": data}
     post_id = project.insert_one(packet).inserted_id
     return "Added to db"
+
+@app.route("/getall")
+def get_all_packets():
+    things = []
+    for thing in project.find():
+        things.append(thing)
+    return str(things)
 

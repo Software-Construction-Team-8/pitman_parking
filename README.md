@@ -11,6 +11,7 @@ pip install -U flask-cors
 pip install Flask
 pip install flask python-dotenv
 pip install Flask-PyMongo
+```
 
 2. On one terminal, cd to api directory and run this command to start a python virtual enviroment:
 ```

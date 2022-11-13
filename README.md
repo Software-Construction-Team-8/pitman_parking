@@ -17,6 +17,7 @@ pip install Flask-PyMongo
 ```
 cd api
 . venv/bin/activate
-flask run (This is used to avtivate localhost at port 5000
+flask run 
+(This is used to avtivate localhost at port 5000)
 On any internet explorer look for localhost 5000. Navigate through localhost using the routes on api.py
 ```

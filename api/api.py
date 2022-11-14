@@ -1,21 +1,21 @@
-import time
-#from flask import Flask
 from flask import Flask,jsonify, render_template,request,redirect
-#from flask_pymongo import PyMongo
 from pymongo import MongoClient
+from flask_cors import CORS
 
 
 
 
 app = Flask(__name__)
 
+CORS(app)
+
 client = MongoClient('mongodb+srv://sc_delaEmi:u2JsEd0nzYssgaMd@cluster0.8qczawe.mongodb.net/test', 5000)
 db=client['test']
-project = db.Sample
+project = db.Parking_Sopts
 
 @app.route("/")
 def home_page():
-    return "You are in localhost 5000"
+    return render_template("./home.html", title="Homepage")
 
 @app.route('/hello')
 def hello():
@@ -26,7 +26,9 @@ def hello():
 def mongotest():
     id = "prk"
     data = "dta"
-    packet = {"id": id, "data": data}
+    lev_num = "x"
+    sp_num = "x"
+    packet = {"Space ID": id, "Space Occupied": data, "Level Number": lev_num, "Space Number": sp_num}
     post_id = project.insert_one(packet).inserted_id
     return "Added to db"
 
@@ -35,5 +37,10 @@ def get_all_packets():
     things = []
     for thing in project.find():
         things.append(thing)
+        print(thing)
     return str(things)
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
 

@@ -1,4 +1,4 @@
-from flask import Flask,jsonify, render_template, request, redirect, Blueprint
+from flask import Flask,jsonify, render_template, request, redirect, Blueprint, url_for
 from pymongo import MongoClient
 from flask_cors import CORS
 
@@ -29,8 +29,9 @@ def switch_space(id):
             hist = {"Identifier": item["_id"], "Space ID":item["Space ID"], "Space Occupied":item["Space Occupied"], "Level Number":item["Level Number"], "Space Number":item["Space Number"]}
             history.insert_one(hist).inserted_id
             project.update_one({'_id': lista[-1]}, {"$set": {"Space Occupied": not item["Space Occupied"]}})
-            return "Item Updated"
-    return "Item not Found"
+            break
+
+    return redirect(url_for('floor1.garage_level1'))
 
 @floor1.route("/garage/floor1/clear", methods=["POST", "GET"])
 def update_space():

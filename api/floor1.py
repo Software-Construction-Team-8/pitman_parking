@@ -1,4 +1,4 @@
-from flask import Flask,jsonify, render_template, request, redirect, Blueprint, url_for
+from flask import Flask, render_template, redirect, Blueprint, url_for
 from pymongo import MongoClient
 from flask_cors import CORS
 
@@ -9,13 +9,27 @@ client = MongoClient('mongodb+srv://sc_delaEmi:u2JsEd0nzYssgaMd@cluster0.8qczawe
 db=client['test']
 project = db.Level_1
 history = db.History
+
 #api calls (Methods)
 
 @floor1.route("/garage/floor1/printFloor")
 def garage_level1():
     #Database List
-    arr = list(project.find({}, {"_id":1, "Space ID":1, "Space Occupied":2, "Level Number":3, "Space Number":4}))
-    return render_template("./garage.html", title="Floor1", data=arr)
+    left, right, center = [],[],[]
+    arr = list(project.find({}, {"_id":1, "Space ID":1, "Space Occupied":1, "Level Number":1, "Space Number":1}))
+
+    for i in arr:
+        if i["Space Number"] % 3 == 0:
+            print(i["Space Number"] % 3)
+            right.append(i)
+
+        if i["Space ID"] % 3 == 1:
+            left.append(i)
+
+        if i["Space ID"] % 3 == 2:
+            center.append(i)
+
+    return render_template("./garage.html", title="Floor1", left=left, right=right, center=center )
 
 @floor1.route("/garage/floor1/switchSpace/<id>", methods=["POST", "GET"])
 def switch_space(id):
@@ -37,7 +51,7 @@ def switch_space(id):
 def update_space():
     arr = list(project.find({}, {"_id":1, "Space ID":1, "Space Occupied":2, "Level Number":3, "Space Number":4}))
     for item in arr:
-        project.update_one({'_id': item["_id"]}, {"$set": {"Space Occupied": True}})
-    return "hi"
+        project.update_one({'_id': item["_id"]}, {"$set": {"Space Occupied": False}})
+    return redirect(url_for('floor1.garage_level1'))
 
     

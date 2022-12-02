@@ -30,7 +30,7 @@
           flex-wrap: wrap;
           justify-content: center;
           align-items: center;
-          top: -256px;
+          top: -650px;
 
         }
 
@@ -46,7 +46,7 @@
           display: flex;
           justify-content: right;
           align-items: right;
-          top: -450px;
+          top: -1300px;
         }
 
       </style>
@@ -93,7 +93,7 @@
     </nav>
 
     <body>
-      {% for space in  left %}
+        {% for space in  left %}
         {% if space["Space Occupied"] %}
           <div class="left">
             <div class='box red'><h2>{{space["Space Number"]}}</h2></div>
@@ -128,6 +128,7 @@
           </div>
         {% endif %}          
       {% endfor %}
+
     </body>
 
 

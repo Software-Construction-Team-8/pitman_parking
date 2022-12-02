@@ -26,9 +26,17 @@ CORS(app)
 def home_page():
     return render_template("./home.html", title="Homepage")
 
-@app.route("/street")
+@app.route("/g_home")
 def street_page():
-    return render_template("./garage.html", title="Garage")
+    return render_template("./garage_home.html", title="Garage")
+
+@app.route("/readme")
+def readme():
+    return render_template("./readme.html", title="Read me")
+
+@app.route("/aboutus")
+def aboutus():
+    return render_template("./aboutme.html", title="About Us")
 
 
 @app.route('/hello')

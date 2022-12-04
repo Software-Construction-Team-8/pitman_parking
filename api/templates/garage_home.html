@@ -10,65 +10,78 @@
 
     <!--<h1>Pitman Parking</h1>-->
 
-    <nav class="navbar navbar-expand-lg" >   
-        <div class="container-fluid shadow p-1 bg-light">
-          
-          <span class="p-4 border-end ">
-              <a class="navbar-brand mb-0 h1" >Pitman Parking</a>
-          </span>
-          
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation" target="_self">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          
-          <div class="collapse navbar-collapse navbar-light bg-light justify-content-lg-left mx-auto my-auto " id="navbarNavDropdown">
-            <ul class="navbar-nav ">
-              
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="home" target="_self">Home</a>
-              </li>
-              
-              
-              <li class="nav-item">
-                <a class="nav-link" href="g_home" target="_self">Garage</a>
-              </li>
-              
-              
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="readme" target="_self">Readme
-                </a>
-              </li>
+    <nav class="navbar navbar-expand-lg " >   
+      <div class="container-fluid shadow p-1 bg-light">
+        
+        <span class="p-4 border-end ">
+            <a class="navbar-brand mb-0 h1" >Pitman Parking</a>
+        </span>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation" target="_self">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse navbar-light bg-light justify-content-lg-left mx-auto my-auto " id="navbarNavDropdown">
+          <ul class="navbar-nav ">
+            
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="home" target="_self">Home</a>
+            </li>
+            
+            
+            <li class="nav-item">
+              <a class="nav-link" href="g_home" target="_self">Garage</a>
+            </li>
+            
+            
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="readme" target="_self">Readme
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="aboutus" target="_self">About us
+              </a>
+            </li>
   
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="aboutus" target="_self">About us
-                </a>
-              </li>
+
+          </ul>
+        </div>        
+      </div>
+    </nav>
+
+    <body>
+
+
+      <div class="d-grid gap-2 col-6 mx-auto" id="floor-btn">
+        <button type="button" class="btn btn-dark" onclick="window.location.href='/garage/floor1/printFloor'">Floor 1</button>
+
+        <button type="button" class="btn btn-dark" onclick="window.location.href='/garage/floor2/printFloor'">Floor 2</button>
+
+        <button type="button" class="btn btn-dark" onclick="window.location.href='/garage/floor3/printFloor'">Floor 3</button>
+
+        <button type="button" class="btn btn-dark" onclick="window.location.href='/garage/floor4/printFloor'">Floor 4</button>
+
+        <button type="button" class="btn btn-dark" onclick="window.location.href='/garage/floor5/printFloor'" >Floor 5</button>
+      </div>
+
+      <style>
+        body {
+        background-color: #D4F1F4;
+        background-repeat: no-repeat;
+        background-size: 100% 50em;
+        }
+
+        #floor-btn {
+          position: relative;
+          top: 7em;
+        }
+      </style> {
+        
+
+
+    </body>
     
-  
-            </ul>
-          </div>        
-        </div>
-      </nav>
-
-    <div>
-        <button type="button" class="btn btn-outline-dark btn-lg btn-block" onclick="window.location.href='/garage/floor1/printFloor'">Floor 1</button>
-    </div>
-
-    <div>
-        <button type="button" class="btn btn-outline-dark btn-lg btn-block" onclick="window.location.href='/garage/floor2/printFloor'">Floor 2</button>
-    </div>
-
-    <div>
-        <button type="button" class="btn btn-outline-dark btn-lg btn-block" onclick="window.location.href='/garage/floor3/printFloor'">Floor 3</button>
-    </div>
-
-    <div>
-        <button type="button" class="btn btn-outline-dark btn-lg btn-block" onclick="window.location.href='/garage/floor4/printFloor'">Floor 4</button>
-    </div> 
-    
-    <div>
-        <button type="button" class="btn btn-outline-dark btn-lg btn-block" onclick="window.location.href='/garage/floor5/printFloor'" >Floor 5</button>
-    </div>
 
 
 

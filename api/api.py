@@ -8,7 +8,7 @@ from floor2 import floor2
 from floor3 import floor3
 from floor4 import floor4
 from floor5 import floor5
-from history import history
+from database import database
 
 #Registers
 app = Flask(__name__)
@@ -17,7 +17,8 @@ app.register_blueprint(floor2)
 app.register_blueprint(floor3)
 app.register_blueprint(floor4)
 app.register_blueprint(floor5)
-app.register_blueprint(history)
+app.register_blueprint(database)
+
 
 CORS(app)
 

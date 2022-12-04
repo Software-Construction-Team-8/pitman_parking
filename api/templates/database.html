@@ -30,7 +30,7 @@
           flex-wrap: wrap;
           justify-content: center;
           align-items: center;
-          top: -650px;
+          top: -256px;
 
         }
 
@@ -46,7 +46,7 @@
           display: flex;
           justify-content: right;
           align-items: right;
-          top: -1300px;
+          top: -450px;
         }
 
       </style>
@@ -93,41 +93,41 @@
     </nav>
 
     <body>
-        {% for space in  left %}
-        {% if space["Space Occupied"] %}
-          <div class="left">
-            <div class='box red'><h2>{{space["Space Number"]}}</h2></div>
-          </div>
-        {% else %}
-        <div class="left">
-          <div class='box green'><h2>{{space["Space Number"]}}</h2></div>
-        </div>
-        {% endif %}          
-      {% endfor %}
-
-      {% for space in center %}
-        {% if space["Space Occupied"] %}
-          <div class="center">
-            <div class='box red'><h2>{{space["Space Number"]}}</h2></div>
-          </div>
-        {% else %}
-          <div class="center">
-            <div class='box green'><h2>{{space["Space Number"]}}</h2></div>
-          </div>
-        {% endif %}          
-      {% endfor %}
-
-      {% for space in  right %}
-        {% if space["Space Occupied"] %}
-          <div class="right">
-            <div class='box red'><h2>{{space["Space Number"]}}</h2></div>
-          </div>
-        {% else %}
-          <div class="right">
-            <div class='box green'><h2>{{space["Space Number"]}}</h2></div>
-          </div>
-        {% endif %}          
-      {% endfor %}
+      
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Space ID</th>
+                <th scope="col">Level Number</th>
+                <th scope="col">Space Number</th>
+                <th scope="col">State</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for floor in arr %}
+                    {% for space in floor %}
+                        {% if space["Space Occupied"] %}
+                        <tr>
+                            <th>{{space["_id"]}}</th>
+                            <td>{{space["Space ID"]}}</td>
+                            <td>{{space["Level Number"]}}</td>
+                            <td>{{space["Space Number"]}}</td>
+                            <td><div class='box red'></div></td>
+                        </tr>
+                        {% else %}
+                        <tr>
+                            <th>{{space["_id"]}}</th>
+                            <td>{{space["Space ID"]}}</td>
+                            <td>{{space["Level Number"]}}</td>
+                            <td>{{space["Space Number"]}}</td>
+                            <td><div class='box green'></div></td>
+                        </tr>
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+            </tbody>
+          </table>
 
       <style>
         body {
@@ -136,7 +136,6 @@
         background-size: 100% 50em;
         }
       </style>
-
     </body>
 
 
